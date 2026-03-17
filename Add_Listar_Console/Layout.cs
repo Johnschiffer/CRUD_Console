@@ -10,7 +10,7 @@ namespace Add_Listar_Console
     public class Layout
     {
         private static List<Pessoa> pessoas = new List<Pessoa>();
-        private static int opcao = 0;
+        //private static int opcao = 0;
         private static void AddPessoa()
         {
             Console.Clear();
@@ -47,7 +47,16 @@ namespace Add_Listar_Console
             Console.WriteLine("1 - Adicionar Pessoa");
             Console.WriteLine("2 - Listar Pessoas");
             Console.WriteLine("3 - Sair");
-            opcao = int.Parse(Console.ReadLine());
+            //int opcao = Convert.ToInt32(Console.ReadLine());
+
+            bool tryParse = int.TryParse(Console.ReadLine(), out int opcao);
+
+            if (!tryParse)
+            {
+                Console.Clear();
+                Console.WriteLine("Digite apenas números!");
+                MenuPrincipal();
+            }
 
             switch (opcao)
             {
@@ -61,6 +70,7 @@ namespace Add_Listar_Console
                     Environment.Exit(0);
                     break;
                 default:
+                    Console.Clear();
                     Console.WriteLine("Opção Invalida!");
                     Thread.Sleep(500);
                     MenuPrincipal();
