@@ -132,16 +132,9 @@ namespace Add_Listar_Console
                         ListarPessoas();
                         break;
 
-                    case 2:
-                        Console.Clear();
-                        MenuPrincipal();
-                        break;
-
                     default:
                         Console.Clear();
-                        Console.WriteLine("Escolha uma das opções.");
-                        Console.WriteLine();
-                        DeletarPessoa();
+                        MenuPrincipal();
                         break;
                 }
                 
